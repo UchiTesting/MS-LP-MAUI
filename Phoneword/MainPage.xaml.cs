@@ -2,23 +2,55 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        string translatedNumber;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnTranslate(object sender, EventArgs e)
         {
-            count++;
+            string enteredNumber = PhoneNumberText.Text;
+            translatedNumber = Core.PhonewordTranslator.ToNumber(enteredNumber);
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            if (!string.IsNullOrEmpty(translatedNumber))
+            {
+                CallButton.IsEnabled = true;
+                CallButton.Text = $"Call {translatedNumber}";
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
+            {
+                CallButton.IsEnabled = false;
+                CallButton.Text = "Call";
+            }
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void OnCall(object sender, EventArgs e)
+        {
+            if (await DisplayAlert(
+                "Confirm call",
+                "Do you want to proceed with call?",
+                "Yes", "No"))
+            {
+                try
+                {
+                    PhoneDialer.Open(translatedNumber);
+                }
+                catch (ArgumentNullException)
+                {
+                    await DisplayAlert("Unable to dial", "Phone number was not valid.", "OK");
+                }
+                catch (FeatureNotSupportedException)
+                {
+                    await DisplayAlert("Unable to dial", "Phone dialing not supported.", "OK");
+                }
+                catch (Exception)
+                {
+                    // Other error has occurred.
+                    await DisplayAlert("Unable to dial", "Phone dialing failed.", "OK");
+                }
+            }
         }
     }
 }
