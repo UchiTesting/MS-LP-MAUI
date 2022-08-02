@@ -27,11 +27,3 @@ public partial class MainPage : ContentPage
         editor.Text = string.Empty;
     }
 }
-
-public class GlobalFontSizeExtension : IMarkupExtension
-{
-    public object ProvideValue(IServiceProvider serviceProvider)
-    {
-        return MainPage.MyFontSize;
-    }
-}
