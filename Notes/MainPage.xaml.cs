@@ -5,6 +5,8 @@ public partial class MainPage : ContentPage
 {
     string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
 
+    public const double MyFontSize = 28;
+
     public MainPage()
     {
         InitializeComponent();
@@ -26,3 +28,10 @@ public partial class MainPage : ContentPage
     }
 }
 
+public class GlobalFontSizeExtension : IMarkupExtension
+{
+    public object ProvideValue(IServiceProvider serviceProvider)
+    {
+        return MainPage.MyFontSize;
+    }
+}
