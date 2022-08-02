@@ -6,10 +6,15 @@
     <VerticalStackLayout Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
 
         <Label Text="Notes" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"
-               FontSize="{x:Static notes:MainPage.MyFontSize}"/>
+               TextColor="{x:Static notes:SharedResources.FontColor}"
+               FontSize="{x:Static notes:MainPage.MyFontSize}"
+               />
         <Editor x:Name="editor" Placeholder="Enter your notes" 
-                HeightRequest="100"
-                />
+                Margin="0,5,0,20"
+               TextColor="{x:Static notes:SharedResources.FontColor}"
+               BackgroundColor="{x:Static notes:SharedResources.BackgroundColor}"
+               HeightRequest="100"
+               />
         <Grid ColumnDefinitions="Auto, 30, Auto" HeightRequest="40">
             <Button Grid.Column="0" Text="Save" Clicked="OnSaveButtonClicked"/>
             <Button Grid.Column="2" Text="Delete" Clicked="OnDeleteButtonClicked"/>
