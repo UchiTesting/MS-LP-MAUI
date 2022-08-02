@@ -9,12 +9,14 @@
                TextColor="{x:Static notes:SharedResources.FontColor}"
                FontSize="{x:Static notes:MainPage.MyFontSize}"
                />
+        
         <Editor x:Name="editor" Placeholder="Enter your notes" 
                 Margin="0,5,0,20"
-               TextColor="{x:Static notes:SharedResources.FontColor}"
-               BackgroundColor="{x:Static notes:SharedResources.BackgroundColor}"
-               HeightRequest="100"
-               />
+                TextColor="{x:Static notes:SharedResources.FontColor}"
+                BackgroundColor="{x:Static notes:SharedResources.BackgroundColor}"
+                HeightRequest="{OnPlatform 100, Android=500, iOS=500}"
+                />
+        
         <Grid ColumnDefinitions="Auto, 30, Auto" HeightRequest="40">
             <Button Grid.Column="0" Text="Save" Clicked="OnSaveButtonClicked"/>
             <Button Grid.Column="2" Text="Delete" Clicked="OnDeleteButtonClicked"/>
