@@ -20,5 +20,9 @@
         Title="🌐 Grid"
         ContentTemplate="{DataTemplate views:GridDemoPage}"
         Route="Grid" />
+    <ShellContent
+        Title="Local Resource"
+        ContentTemplate="{DataTemplate views:LocalResourceDemoPage}"
+        Route="LocalResource" />
 
 </Shell>

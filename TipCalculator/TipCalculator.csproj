@@ -52,6 +52,9 @@
 	  <MauiXaml Update="Views\GridDemoPage.xaml">
 	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\LocalResourceDemoPage.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\StackLayoutDemoPage.xaml">
 	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	  </MauiXaml>
