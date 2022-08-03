@@ -7,6 +7,7 @@
     <VerticalStackLayout Padding="{OnPlatform '50', iOS='50,70,50,50'}" Spacing="10">
         <Button Text="Stack Demo" Clicked="OnStack_Clicked"/>
         <Button Text="Grid Demo" Clicked="OnGrid_Clicked"/>
-        <Button Text="Local Resource Demo" Clicked="OnLocalResouce_Clicked"/>
+        <Button Text="Local Static Resource Demo" Clicked="OnLocalStaticResouce_Clicked"/>
+        <Button Text="Local Dynamic Resource Demo" Clicked="OnLocalDynamicResouce_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

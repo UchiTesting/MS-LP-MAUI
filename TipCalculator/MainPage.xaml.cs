@@ -8,17 +8,14 @@ public partial class MainPage : ContentPage
     }
 
     private async void OnStack_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("//Stack");
-    }
+        => await Shell.Current.GoToAsync("//Stack");
 
     private async void OnGrid_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("//Grid");
-    }
+        => await Shell.Current.GoToAsync("//Grid");
 
-    private async void OnLocalResouce_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("//LocalResource");
-    }
+    private async void OnLocalStaticResouce_Clicked(object sender, EventArgs e)
+        => await Shell.Current.GoToAsync("//LocalStaticResource");
+
+    private async void OnLocalDynamicResouce_Clicked(object sender, EventArgs e)
+        => await Shell.Current.GoToAsync("//LocalDynamicResource");
 }

@@ -21,8 +21,12 @@
         ContentTemplate="{DataTemplate views:GridDemoPage}"
         Route="Grid" />
     <ShellContent
-        Title="Local Resource"
+        Title="Static Resource"
         ContentTemplate="{DataTemplate views:LocalResourceDemoPage}"
-        Route="LocalResource" />
+        Route="LocalStaticResource" />
+    <ShellContent
+        Title="Dynamic Resource"
+        ContentTemplate="{DataTemplate views:DynamicResourceDemoPage}"
+        Route="LocalDynamicResource" />
 
 </Shell>

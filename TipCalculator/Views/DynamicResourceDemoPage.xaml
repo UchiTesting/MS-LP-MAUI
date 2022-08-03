@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="TipCalculator.Views.DynamicResourceDemoPage"
+			 Title="DynamicResourceDemoPage"
+			 BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="bgColor">white</Color>
+            <Color x:Key="fgColor">black</Color>
+            <Color x:Key="btnBgColor">dimgray</Color>
+            <Color x:Key="btnFgColor">lightgray</Color>
+            <x:Double x:Key="buttonWidth">100</x:Double>
+            <x:Double x:Key="fontSize">12</x:Double>
+            <Thickness x:Key="sampleTextPadding">30,20</Thickness>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Orientation="Vertical"
+		BackgroundColor="{DynamicResource bgColor}">
+        <ScrollView
+            VerticalOptions="StartAndExpand"
+            >
+            
+        <Label x:Name="sampleTextLabel"
+			CharacterSpacing="2"
+			Padding="{StaticResource sampleTextPadding}"
+			TextColor="{DynamicResource fgColor}"
+			FontSize="{DynamicResource fontSize}"
+			   />
+        </ScrollView>
+        <StackLayout Orientation="Horizontal"
+					 Spacing="20" Margin="10"
+					 HorizontalOptions="CenterAndExpand"
+					 >
+            <Button Text="Dark" 
+				WidthRequest="{StaticResource buttonWidth}"
+				TextColor="{DynamicResource btnFgColor}"
+				BackgroundColor="{DynamicResource btnBgColor}"
+				Clicked="OnDarkButton_Clicked"/>
+            <Button Text="Light" 
+				WidthRequest="{StaticResource buttonWidth}"
+				TextColor="{DynamicResource btnFgColor}"
+				BackgroundColor="{DynamicResource btnBgColor}"
+				Clicked="OnLightButton_Clicked"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal"
+					 Spacing="20" Margin="10"
+					 HorizontalOptions="CenterAndExpand"
+					 >
+            <Button Text="-" 
+				WidthRequest="{StaticResource buttonWidth}"
+				TextColor="{DynamicResource btnFgColor}"
+				BackgroundColor="{DynamicResource btnBgColor}"
+				Clicked="OnMinusSizeButton_Clicked"/>
+            <Button Text="+" 
+				WidthRequest="{StaticResource buttonWidth}"
+				TextColor="{DynamicResource btnFgColor}"
+				BackgroundColor="{DynamicResource btnBgColor}"
+				Clicked="OnPlusSizeButton_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
