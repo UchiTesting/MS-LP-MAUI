@@ -9,6 +9,14 @@
                 <ResourceDictionary Source="Resources/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Color x:Key="sliderBarColor">#ffff00</Color>
+            <Color x:Key="sliderDotColor">#ffaa00</Color>
+
+            <Style TargetType="Slider">
+                <Setter Property="BackgroundColor" Value="{StaticResource sliderBarColor}"/>
+                <Setter Property="ThumbColor" Value="{StaticResource sliderDotColor}"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
