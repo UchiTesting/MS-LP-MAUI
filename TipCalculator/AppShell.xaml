@@ -28,5 +28,9 @@
         Title="Dynamic Resource"
         ContentTemplate="{DataTemplate views:DynamicResourceDemoPage}"
         Route="LocalDynamicResource" />
+    <ShellContent
+        Title="Style"
+        ContentTemplate="{DataTemplate views:StyleDemoPage}"
+        Route="LocalStyle" />
 
 </Shell>

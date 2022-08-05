@@ -9,5 +9,6 @@
         <Button Text="Grid Demo" Clicked="OnGrid_Clicked"/>
         <Button Text="Local Static Resource Demo" Clicked="OnLocalStaticResouce_Clicked"/>
         <Button Text="Local Dynamic Resource Demo" Clicked="OnLocalDynamicResouce_Clicked"/>
+        <Button Text="Local Style Demo" Clicked="OnLocalStyle_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

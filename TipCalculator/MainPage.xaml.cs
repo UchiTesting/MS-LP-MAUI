@@ -18,4 +18,7 @@ public partial class MainPage : ContentPage
 
     private async void OnLocalDynamicResouce_Clicked(object sender, EventArgs e)
         => await Shell.Current.GoToAsync("//LocalDynamicResource");
+
+    private async void OnLocalStyle_Clicked(object sender, EventArgs e)
+        => await Shell.Current.GoToAsync("//LocalStyle");
 }
