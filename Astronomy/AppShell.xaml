@@ -6,25 +6,48 @@
     xmlns:local="clr-namespace:Astronomy.Pages"
     FlyoutIcon="{StaticResource lightMoon}">
 
+    <!--#region Resources -->
     <Shell.Resources>
         <ResourceDictionary>
             <FileImageSource x:Key="darkMoon">moon.png</FileImageSource>
             <FileImageSource x:Key="lightMoon">moon_white.png</FileImageSource>
-            
+
+            <FileImageSource x:Key="darkSun">sun.png</FileImageSource>
+            <FileImageSource x:Key="lightSun">sun_white.png</FileImageSource>
+
             <OnPlatform x:Key="moonIcon" x:TypeArguments="FileImageSource" Default="{StaticResource lightMoon}">
-                <!--<On Platform="WinUI" Value="{StaticResource lightMoon}"/>-->
+                <On Platform="WinUI" Value="{StaticResource lightMoon}"/>
                 <On Platform="Android, iOS" Value="{StaticResource darkMoon}" />
             </OnPlatform>
-            
+
+            <OnPlatform x:Key="sunIcon" x:TypeArguments="FileImageSource" Default="{StaticResource lightSun}">
+                <On Platform="WinUI" Value="{StaticResource lightSun}"/>
+                <On Platform="Android, iOS" Value="{StaticResource darkSun}" />
+            </OnPlatform>
+
             <Style x:Key="moonPhaseFlyItemStyle" TargetType="FlyoutItem">
                 <Setter Property="FlyoutIcon" Value="{StaticResource moonIcon}" />
             </Style>
+
+            <Style x:Key="moonPhaseTabStyle" TargetType="Tab">
+                <Setter Property="Icon" Value="{StaticResource moonIcon}" />
+            </Style>
+
+            <Style x:Key="sunriseTabStyle" TargetType="Tab">
+                <Setter Property="Icon" Value="{StaticResource sunIcon}" />
+            </Style>
         </ResourceDictionary>
     </Shell.Resources>
+    <!--#endregion-->
 
-    <FlyoutItem Title="Moon Phase" Style="{StaticResource moonPhaseFlyItemStyle}"> 
-        <ShellContent
-            ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
-    </FlyoutItem>
-
+    <TabBar>
+        <Tab Title="Moon Phase" Style="{StaticResource moonPhaseTabStyle}">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+        </Tab>
+        <Tab Title="Sunrise" Style="{StaticResource sunriseTabStyle}">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:SunrisePage}" />
+        </Tab>
+    </TabBar>
 </Shell>
