@@ -53,9 +53,11 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\dark\moon.png" />
+	  <None Remove="Resources\Images\dark\planet.png" />
 	  <None Remove="Resources\Images\dark\question.png" />
 	  <None Remove="Resources\Images\dark\sun.png" />
 	  <None Remove="Resources\Images\light\moon_white.png" />
+	  <None Remove="Resources\Images\light\planet_white.png" />
 	  <None Remove="Resources\Images\light\question_white.png" />
 	  <None Remove="Resources\Images\light\sun_white.png" />
 	  <None Remove="Resources\Images\moon.png" />
@@ -65,9 +67,11 @@
 
 	<ItemGroup>
 	  <MauiImage Include="Resources\Images\dark\moon.png" />
+	  <MauiImage Include="Resources\Images\dark\planet.png" />
 	  <MauiImage Include="Resources\Images\dark\question.png" />
 	  <MauiImage Include="Resources\Images\dark\sun.png" />
 	  <MauiImage Include="Resources\Images\light\moon_white.png" />
+	  <MauiImage Include="Resources\Images\light\planet_white.png" />
 	  <MauiImage Include="Resources\Images\light\question_white.png" />
 	  <MauiImage Include="Resources\Images\light\sun_white.png" />
 	</ItemGroup>

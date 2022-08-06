@@ -18,6 +18,9 @@
 
             <FileImageSource x:Key="darkQuestion">question.png</FileImageSource>
             <FileImageSource x:Key="lightQuestion">question_white.png</FileImageSource>
+
+            <FileImageSource x:Key="darkPlanet">planet.png</FileImageSource>
+            <FileImageSource x:Key="lightPlanet">planet_white.png</FileImageSource>
             <!--#endregion-->
 
             <!--#region Platform Specific adaptations -->
@@ -34,6 +37,11 @@
             <OnPlatform x:Key="questionIcon" x:TypeArguments="FileImageSource" Default="{StaticResource lightQuestion}">
                 <On Platform="WinUI" Value="{StaticResource lightQuestion}"/>
                 <On Platform="Android, iOS" Value="{StaticResource darkQuestion}" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="planetIcon" x:TypeArguments="FileImageSource" Default="{StaticResource lightPlanet}">
+                <On Platform="WinUI" Value="{StaticResource lightPlanet}" />
+                <On Platform="Android, iOS" Value="{StaticResource darkPlanet}" />
             </OnPlatform>
             <!--#endregion-->
 
@@ -65,6 +73,8 @@
             ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
         <ShellContent Title="Sunrise" Icon="{StaticResource sunIcon}"
             ContentTemplate="{DataTemplate local:SunrisePage}" />
+        <ShellContent Title="Bodies"
+            ContentTemplate="{DataTemplate local:AstronomicalBodiesPage}" Icon="{StaticResource planetIcon}"/>
     </FlyoutItem>
     <FlyoutItem Title="About" Style="{StaticResource Key=aboutFlyItemStyle}">
         <ShellContent Title="About" Icon="{StaticResource questionIcon}" 
