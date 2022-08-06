@@ -4,9 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Astronomy.Pages"
-    FlyoutIcon="moon_white.png">
+    FlyoutIcon="{StaticResource lightMoon}">
 
-    <FlyoutItem Title="Moon Phase" FlyoutIcon="moon_white.png"> 
+    <Shell.Resources>
+        <ResourceDictionary>
+            <FileImageSource x:Key="darkMoon">moon.png</FileImageSource>
+            <FileImageSource x:Key="lightMoon">moon_white.png</FileImageSource>
+            
+            <OnPlatform x:Key="moonIcon" x:TypeArguments="FileImageSource" Default="{StaticResource lightMoon}">
+                <!--<On Platform="WinUI" Value="{StaticResource lightMoon}"/>-->
+                <On Platform="Android, iOS" Value="{StaticResource darkMoon}" />
+            </OnPlatform>
+            
+            <Style x:Key="moonPhaseFlyItemStyle" TargetType="FlyoutItem">
+                <Setter Property="FlyoutIcon" Value="{StaticResource moonIcon}" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <FlyoutItem Title="Moon Phase" Style="{StaticResource moonPhaseFlyItemStyle}"> 
         <ShellContent
             ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
     </FlyoutItem>
