@@ -9,12 +9,18 @@
     <!--#region Resources -->
     <Shell.Resources>
         <ResourceDictionary>
+            <!--#region Root Properties -->
             <FileImageSource x:Key="darkMoon">moon.png</FileImageSource>
             <FileImageSource x:Key="lightMoon">moon_white.png</FileImageSource>
 
             <FileImageSource x:Key="darkSun">sun.png</FileImageSource>
             <FileImageSource x:Key="lightSun">sun_white.png</FileImageSource>
 
+            <FileImageSource x:Key="darkQuestion">question.png</FileImageSource>
+            <FileImageSource x:Key="lightQuestion">question_white.png</FileImageSource>
+            <!--#endregion-->
+
+            <!--#region Platform Specific adaptations -->
             <OnPlatform x:Key="moonIcon" x:TypeArguments="FileImageSource" Default="{StaticResource lightMoon}">
                 <On Platform="WinUI" Value="{StaticResource lightMoon}"/>
                 <On Platform="Android, iOS" Value="{StaticResource darkMoon}" />
@@ -25,10 +31,23 @@
                 <On Platform="Android, iOS" Value="{StaticResource darkSun}" />
             </OnPlatform>
 
+            <OnPlatform x:Key="questionIcon" x:TypeArguments="FileImageSource" Default="{StaticResource lightQuestion}">
+                <On Platform="WinUI" Value="{StaticResource lightQuestion}"/>
+                <On Platform="Android, iOS" Value="{StaticResource darkQuestion}" />
+            </OnPlatform>
+            <!--#endregion-->
+
+            <!--#region FlyoutItem Styles -->
             <Style x:Key="moonPhaseFlyItemStyle" TargetType="FlyoutItem">
                 <Setter Property="FlyoutIcon" Value="{StaticResource moonIcon}" />
             </Style>
 
+            <Style x:Key="aboutFlyItemStyle" TargetType="FlyoutItem">
+                <Setter Property="FlyoutIcon" Value="{StaticResource questionIcon}" />
+            </Style>
+            <!--#endregion-->
+
+            <!--#region Tab Styles -->
             <Style x:Key="moonPhaseTabStyle" TargetType="Tab">
                 <Setter Property="Icon" Value="{StaticResource moonIcon}" />
             </Style>
@@ -36,18 +55,19 @@
             <Style x:Key="sunriseTabStyle" TargetType="Tab">
                 <Setter Property="Icon" Value="{StaticResource sunIcon}" />
             </Style>
+            <!--#endregion-->
         </ResourceDictionary>
     </Shell.Resources>
     <!--#endregion-->
 
-    <TabBar>
-        <Tab Title="Moon Phase" Style="{StaticResource moonPhaseTabStyle}">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
-        </Tab>
-        <Tab Title="Sunrise" Style="{StaticResource sunriseTabStyle}">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:SunrisePage}" />
-        </Tab>
-    </TabBar>
+    <FlyoutItem Title="Astronomy" Style="{StaticResource moonPhaseFlyItemStyle}">
+        <ShellContent Title="Moon Phase" Icon="{StaticResource moonIcon}"
+            ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+        <ShellContent Title="Sunrise" Icon="{StaticResource sunIcon}"
+            ContentTemplate="{DataTemplate local:SunrisePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="About" Style="{StaticResource Key=aboutFlyItemStyle}">
+        <ShellContent Title="About" Icon="{StaticResource questionIcon}" 
+            ContentTemplate="{DataTemplate local:AboutPage}"/>
+    </FlyoutItem>
 </Shell>
